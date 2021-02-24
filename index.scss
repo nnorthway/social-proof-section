@@ -1,0 +1,223 @@
+//breakpoints
+$mobile: 768px;
+$desktop: 1440px;
+//colors 
+$primaryDark: hsl(300,43%,22%);
+$primaryPink: hsl(333,80%,67%);
+$neutralDarkMagenta: hsl(303,10%,53%);
+$neutralLightMagenta: hsl(300,24%,96%);
+$neutralWhite: hsl(0,0%,100%);
+//fonts
+$fontSize: 15px;
+$fontFamily: 'Spartan';
+$lightFont: 400;
+$medFont: 500;
+$heavyFont: 700;
+
+//globals 
+body {
+  font-size: $fontSize;
+  font-family: $fontFamily, sans-serif;
+  background: url(images/bg-pattern-top-mobile.svg),
+              url(images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-size: contain, contain;
+  padding: 6rem 1.5rem;
+}
+
+.title {
+  color: $primaryDark;
+  width: 65%;
+  font-weight: $heavyFont;
+  margin: 0 auto;
+  line-height: 1em;
+}
+.subtitle {
+  line-height: 1.75em;
+  font-size: 1.3em;
+}
+.text-pink {
+  color: $primaryPink;
+}
+p {
+  color: $neutralDarkMagenta;
+}
+
+.hero {
+  .item {
+    text-align: center;
+  }
+}
+
+.star {
+  height: 16px;
+  width: 17px;
+  margin: 0 4.25px;
+  display: block;
+  background: url(images/icon-star.svg);
+}
+
+.stars {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  .row {
+    &:first-of-type {
+      margin-bottom: 1em;
+    }
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+  }
+  background: $neutralLightMagenta;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 2em auto;
+  color: $primaryDark;
+  font-weight: $heavyFont;
+}
+
+.card {
+  background: $primaryDark;
+  color: $neutralWhite;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+  padding: 2.5em 2em;
+  padding-bottom: 1.5em;
+  border-radius: .5em;
+  margin: 1em 0;
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    * {
+      height: 3em;
+    }
+    .icon {
+      img {
+        border-radius: 50%;
+      }
+    }
+    .credit {
+      margin-left: 2em;
+      display: flex;
+      flex-direction: column;
+      span {
+        margin-top: .3em;
+        &:first-of-type {
+          font-weight: $heavyFont;
+        }
+        &:last-of-type {
+          font-weight: $lightFont;
+        }
+        display: inline-block;
+      }
+    }
+  }
+  .card-content {
+    p {
+      color: $neutralWhite;
+      line-height: 1.75em;
+    }
+  }
+}
+
+.attribution {
+  margin-top: 5em;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+@media (min-width: $mobile) {
+  body {
+    background: url(images/bg-pattern-top-desktop.svg),
+                url(images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: 36%, 89%;
+    padding: 6rem 10%;
+  }
+  .title {
+    width: 100%;
+    font-size: 3em;
+  }
+  .hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .item {
+      text-align: left;
+    }
+  }
+  #title {
+    width: 40%;
+    .subtitle {
+      font-size: 1em;
+    }
+  }
+  #ratings {
+    width: 50%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 50px 50px auto 50px 50px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 10px;
+    .stars {
+      margin: 0;
+    }
+    :first-child {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+    :nth-child(2) {
+      grid-column: 2 / 5;
+      grid-row: 2 / 3;
+    }
+    :nth-child(3) {
+      grid-column: 3 / 6;
+      grid-row: 3 / 4;
+    }
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 15px 15px auto 15px 15px;
+    grid-column-gap: 2em;
+    .card {
+      &:first-of-type {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+      }
+      &:nth-of-type(2) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 5;
+      }
+      &:nth-of-type(3) {
+        grid-column: 3 / 4;
+        grid-row: 3 / 6;
+      }
+    }
+  }
+  .stars {
+    flex-direction: row;
+    justify-content: flex-start;
+    .row {
+      &:first-of-type {
+        margin-bottom: .5em;
+      }
+      &:last-of-type {
+        margin-left: 1em;
+      }
+    }
+  }
+}
